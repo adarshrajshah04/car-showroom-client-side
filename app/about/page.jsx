@@ -21,6 +21,37 @@ const principles = [
       "Refined design, effortless service and an experience built around you.",
   },
 ];
+
+const milestones = [
+  {
+    id: 1,
+    year: "2024",
+    title: "The beginning",
+    description:
+      "ARS begins with a vision to create a refined destination for exceptional automobiles.",
+  },
+  {
+    id: 2,
+    year: "2025",
+    title: "Building the collection",
+    description:
+      "Our collection grows with carefully selected luxury and performance vehicles.",
+  },
+  {
+    id: 3,
+    year: "2026",
+    title: "A higher standard",
+    description:
+      "Every vehicle is evaluated for condition, design, performance and character.",
+  },
+  {
+    id: 4,
+    year: "2026",
+    title: "The ARS experience",
+    description:
+      "A seamless showroom experience built around exceptional cars and exceptional service.",
+  },
+];
 const page = () => {
   return (
     <div>
@@ -54,6 +85,9 @@ const page = () => {
       </div>
       
       </div>
+
+
+      
 
     
     </div>
