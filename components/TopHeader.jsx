@@ -41,16 +41,16 @@ const img=useRef(null)
     tl.from(img.current,{
       x:-100,
       duration:0.5,
-      delay:1.5,
+      delay:1,
       opacity:0,
     })
 
     // navItems
     tl.from('#nnavDiv a',{
       y:-50,
-      duration:1,
+      duration:0.5,
       opacity:0,
-      stagger:0.3,
+      stagger:0.2,
       
     })
     tl.from('#nlogin',{
@@ -76,7 +76,7 @@ const img=useRef(null)
       {/* navItems */}
       <div id="nnavDiv" className=" flex gap-10 text-[16px] " >
         {navItems.map((nav,idx)=>(
-          <Link  href={'#'} key={idx}
+          <Link  href={nav.path} key={idx}
            className="inline-block ">{nav.name}</Link>
         ))}
       </div>

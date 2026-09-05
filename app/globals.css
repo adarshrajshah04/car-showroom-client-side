@@ -1,6 +1,7 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Doppio+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -19,12 +20,15 @@ body{
 
 :root {
   /* Background */
-  --primary: #212529;
+  --primary: #090909;
   --secondary: #343a40;
   --light-text: #f8f9fa;
   --dark-text: #6c757d;
 
   --text-mid: #dee2e6;
+
+  /* cards */
+  --cards:#212529;
 
   /* Borders */
   --border: #ced4da;
@@ -45,6 +49,7 @@ body{
   --color-mid-text: var( --text-mid);
 
   --color-border: var(--border);
+  --color-card: var(--cards);
 
   --color-gray-light: var(--color-gray-light);
  
