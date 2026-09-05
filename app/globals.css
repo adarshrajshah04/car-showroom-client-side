@@ -1,26 +1,54 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Doppio+One&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+body{
+    font-family: "Doppio One", sans-serif;
+
 }
+
+
+:root {
+  /* Background */
+  --primary: #212529;
+  --secondary: #343a40;
+  --light-text: #f8f9fa;
+  --dark-text: #6c757d;
+
+  --color-bg-card: #dee2e6;
+
+  /* Borders */
+  --border: #ced4da;
+
+  /* Gray */
+  --color-gray-light: #adb5bd;
+  --color-gray: #6c757d;
+  --color-gray-dark: #495057;
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+
+  --color-light-text: var(--light-text);
+  --color-dark-text: var(--dark-text);
+
+  --color-card: var(--color-bg-card);
+
+  --color-border: var(--border);
+
+  --color-gray-light: var(--color-gray-light);
+  --color-gray: var(--color-gray);
+  --color-gray-dark: var(--color-gray-dark);
+}
+
+
