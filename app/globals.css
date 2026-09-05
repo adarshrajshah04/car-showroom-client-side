@@ -24,14 +24,14 @@ body{
   --light-text: #f8f9fa;
   --dark-text: #6c757d;
 
-  --color-bg-card: #dee2e6;
+  --text-mid: #dee2e6;
 
   /* Borders */
   --border: #ced4da;
 
   /* Gray */
   --color-gray-light: #adb5bd;
-  --color-gray: #6c757d;
+ 
   --color-gray-dark: #495057;
 }
 
@@ -42,12 +42,12 @@ body{
   --color-light-text: var(--light-text);
   --color-dark-text: var(--dark-text);
 
-  --color-card: var(--color-bg-card);
+  --color-mid-text: var( --text-mid);
 
   --color-border: var(--border);
 
   --color-gray-light: var(--color-gray-light);
-  --color-gray: var(--color-gray);
+ 
   --color-gray-dark: var(--color-gray-dark);
 }
 

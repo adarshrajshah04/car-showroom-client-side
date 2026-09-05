@@ -46,14 +46,14 @@ const img=useRef(null)
     })
 
     // navItems
-    tl.from('#navDiv a',{
+    tl.from('#nnavDiv a',{
       y:-50,
       duration:1,
       opacity:0,
       stagger:0.3,
       
     })
-    tl.from('#login',{
+    tl.from('#nlogin',{
       x:100,
       opacity:0,
       duration:0.5,
@@ -62,9 +62,9 @@ const img=useRef(null)
 
   })
   return (
-    <div className="fixed top-0  w-full bg-secondary/30  backdrop-blur-xl flex justify-between items-center px-16 py-4 text-light-text ">
+    <div className="fixed top-0  w-full bg-secondary/30  backdrop-blur-md flex justify-between items-center px-16 py-4 text-light-text z-10 ">
       {/* logo */}
-      <div ref={img} className=" w-20 h-20" >
+      <div ref={img} className=" w-10 h-10" >
         <Image
         className="w-full h-full"
           src="/assets/images/logo.png"
@@ -74,14 +74,14 @@ const img=useRef(null)
         />
       </div>
       {/* navItems */}
-      <div id="navDiv" className=" flex gap-10 text-[16px] " >
+      <div id="nnavDiv" className=" flex gap-10 text-[16px] " >
         {navItems.map((nav,idx)=>(
           <Link  href={'#'} key={idx}
            className="inline-block ">{nav.name}</Link>
         ))}
       </div>
       {/* Login */}
-      <div id="login">
+      <div id="nlogin">
         <div className="flex items-center">
           <h3>Login </h3>
         <p className=" ml-1"><FaArrowRight /></p>
