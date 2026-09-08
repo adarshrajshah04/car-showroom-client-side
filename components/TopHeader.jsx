@@ -62,7 +62,7 @@ const img=useRef(null)
 
   })
   return (
-    <div className="fixed top-0  w-full bg-secondary/30  backdrop-blur-md flex justify-between items-center px-16 py-4 text-light-text z-10 ">
+    <div className="fixed top-0  w-full bg-secondary/30  backdrop-blur-sm flex justify-between items-center px-16 py-4 text-light-text z-10 ">
       {/* logo */}
       <div ref={img} className=" w-10 h-10" >
         <Image
@@ -77,6 +77,7 @@ const img=useRef(null)
       <div id="nnavDiv" className=" flex gap-10 text-[16px] " >
         {navItems.map((nav,idx)=>(
           <Link  href={nav.path} key={idx}
+          data-cursor=''
            className="inline-block ">{nav.name}</Link>
         ))}
       </div>

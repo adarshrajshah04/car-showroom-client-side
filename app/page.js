@@ -43,7 +43,10 @@ const page = () => {
             who appreciate performance, design, and timeless luxury.
           </p>
           <div className=" flex gap-4 mt-5">
-            <button className="flex items-center bg-light-text font-medium px-6 py-3  rounded-full">
+            <button 
+            data-cursor=''
+            data-magnetic
+            className="flex items-center bg-light-text font-medium px-6 py-3  rounded-full">
               Explore the collection
               <p className="ml-1">
                 <FaArrowRight />
