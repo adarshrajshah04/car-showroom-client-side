@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import TopHeader from "@/components/TopHeader";
 import CustomCursor from "@/components/CustomCursor";
+import Providers from "@/components/redux/Providers";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,11 +28,13 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col bg-primary">
         <div>
-          <CustomCursor/>
-          <TopHeader/>
-        {children}
+          <Providers>
+            <CustomCursor />
+            <TopHeader />
+            {children}
+          </Providers>
         </div>
-        </body>
+      </body>
     </html>
   );
 }

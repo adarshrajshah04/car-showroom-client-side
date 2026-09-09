@@ -2,11 +2,14 @@
 
 import React, { useRef } from "react";
 
+
 import Image from "next/image";
 import Link from "next/link";
+
 import { FaArrowRight } from "react-icons/fa6";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { usePathname } from "next/navigation";
 
 
 
@@ -32,6 +35,7 @@ const navItems = [
 
 const TopHeader = () => {
 const img=useRef(null)
+const pathname=usePathname()
 
 
  
@@ -62,7 +66,7 @@ const img=useRef(null)
 
   })
   return (
-    <div className="fixed top-0  w-full bg-secondary/30  backdrop-blur-sm flex justify-between items-center px-16 py-4 text-light-text z-10 ">
+    <div className="fixed top-0  w-full bg-secondary/30  backdrop-blur-xl flex justify-between items-center px-16 py-3 text-light-text z-10 ">
       {/* logo */}
       <div ref={img} className=" w-10 h-10" >
         <Image
@@ -78,7 +82,8 @@ const img=useRef(null)
         {navItems.map((nav,idx)=>(
           <Link  href={nav.path} key={idx}
           data-cursor=''
-           className="inline-block ">{nav.name}</Link>
+          // using pathname to give the active navbar unique style 
+           className={`text-sm ${pathname==nav.path?"after:absolute after:left-0 after:bottom-[-10] after:h-0.75 after:w-full after:rounded-full after:bg-light-text text-mid-text/50 ":''}`}>{nav.name}</Link>
         ))}
       </div>
       {/* Login */}
