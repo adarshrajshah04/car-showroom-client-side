@@ -11,10 +11,12 @@ const CarsCard = ({ cars }) => {
           
           {/* Image */}
           <Link 
-          href={`car/${car.id}`} 
-          
+          href={`collection/${car.id}`} 
+         
           className="relative w-full h-[65%] inline-block  ">
             <Image
+             data-cursor=''
+             
               alt={car.title}
               src={car.thumbnail}
               fill
@@ -28,7 +30,7 @@ const CarsCard = ({ cars }) => {
                 <p className=" text-light-text text-sm">₹ {" "}{car.price}</p>
             </div>
             <p className="text-xs text-mid-text/60 mt-2   ">{car.description}</p>
-            <Link href={`car/${car.id}`}
+            <Link href={`collection/${car.id}`}
             data-cursor=''
             className="inline-block w-full py-2 px-3 mt-2 rounded-full border border-border/20 text-sm text-mid-text/40 " 
             >

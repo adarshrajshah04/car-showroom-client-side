@@ -364,8 +364,8 @@ const CustomCursor = () => {
           justify-center
           rounded-full
           border
-          border-border/80
-          bg-secondary/60
+          border-border/60
+          bg-black/30
         "
         // backdrop-blur-xl bg blur karne ke liye
       >

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCars } from "../redux/action/cars.action";
+import { fetchCars } from "../../redux/action/cars.action";
 import CarsCard from "./CarsCard";
 
 const FetchCarData = () => {
@@ -16,15 +16,15 @@ const FetchCarData = () => {
     dispatch(fetchCars());
   }, [dispatch]);
 
-  console.log(cars);
 
   return (
-    <div className=" py-30">
+    <div >
       {isLoading && <p className="text-white">Loading...</p>}
 
       {errorMsg && <p>{errorMsg}</p>}
 
       <div>
+        {/* sending cars data to CarsCard component */}
         <CarsCard cars={cars} />
       </div>
     </div>

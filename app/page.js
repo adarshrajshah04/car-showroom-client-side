@@ -5,8 +5,13 @@ import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
 import AutoScroll from "@/components/home/AutoScroll";
-
 import TitleText from "@/components/home/TitleText";
+import { Home } from "lucide-react";
+
+export const metadata ={
+  title:'Home | ARS',
+  description: "Discover exceptional luxury and performance cars at ARS. Explore a curated collection of premium automobiles selected for design, performance, comfort, and timeless elegance.",
+}
 
 const features = [
   {

@@ -1,9 +1,31 @@
+import FuzzyText from "@/components/FuzzyText";
+import Link from "next/link";
 import React from 'react'
 
 const notfound = () => {
   return (
-    <div className='py-30 text-white'>
-        <h3>Not Found</h3>
+    <div>
+      <main className="min-h-screen bg-primary text-light-text flex items-center justify-center">
+      <div className="text-center">
+
+        <FuzzyText
+          baseIntensity={0.2}
+          hoverIntensity={0.5}
+          enableHover
+        >
+          404
+        </FuzzyText>
+
+        <p className="mt-8 text-dark-text">
+         {" The page you're looking for doesn't exist."}
+        </p>
+        <Link href={'/'}
+        className="inline-block bg-blue-800 px-2 py-2 text-sm text-light-text
+        mt-3 rounded-md"
+        > Home page</Link>
+
+      </div>
+    </main>
 
     </div>
   )
