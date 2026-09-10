@@ -1,37 +1,3 @@
-// "use client";
-
-// import { useEffect, useRef } from "react";
-// import gsap from "gsap";
-
-// const CustomCursor = () => {
-//   const cursor = useRef(null);
-
-//   useEffect(() => {
-//     const moveCursor = (e) => {
-//       gsap.to(cursor.current, {
-//         x: e.clientX,
-//         y: e.clientY,
-//         duration: 0.15,
-//         ease: "power2.out",
-//       });
-//     };
-
-//     window.addEventListener("mousemove", moveCursor);
-
-//     return () => {
-//       window.removeEventListener("mousemove", moveCursor);
-//     };
-//   }, []);
-
-//   return (
-//     <div
-//       ref={cursor}
-//       className="pointer-events-none fixed left-0 top-0 z-[9999] h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white"
-//     />
-//   );
-// };
-
-// export default CustomCursor;
 
 "use client";
 
@@ -62,8 +28,8 @@ const CustomCursor = () => {
     // =====================================================
     // INITIAL POSITION
     // =====================================================
-    // Cursor aur dot ko mouse ke center ke according set karta hai
 
+    // Cursor aur dot ko mouse ke center ke according set karta hai
     gsap.set(cursor, {
       xPercent: -50,
       yPercent: -50,
@@ -77,9 +43,9 @@ const CustomCursor = () => {
     // =====================================================
     // HANDLE MOUSE MOVE
     // =====================================================
+
     // Mouse move hone par outer cursor aur inner dot ko
     // mouse ki current position par move karta hai
-
     const handleMouseMove = (e) => {
       // Outer cursor ko smoothly mouse follow karwata hai
       gsap.to(cursor, {
@@ -105,9 +71,9 @@ const CustomCursor = () => {
     // =====================================================
     // HANDLE CURSOR ENTER
     // =====================================================
+
     // data-cursor wale element par mouse enter hone par
     // cursor ko bada karta hai aur VIEW/DRAG text show karta hai
-
     const handleEnter = (e) => {
       // Element ke data-cursor attribute ki value nikalta hai
       // Example: data-cursor="DRAG" -> value = "DRAG"
@@ -127,26 +93,23 @@ const CustomCursor = () => {
       });
 
       // Cursor ke andar data-cursor ki value set karta hai
-      // Example: VIEW / DRAG
+      // Agar value empty hai to default "VIEW" show hoga
       text.textContent = value || "VIEW";
 
       // Cursor ke andar text ko animate karke show karta hai
       gsap.to(text, {
-        
         opacity: 1,
         scale: 1,
         duration: 0.3,
-        
-
       });
     };
 
     // =====================================================
     // HANDLE CURSOR LEAVE
     // =====================================================
+
     // data-cursor wale element se mouse bahar jaane par
     // cursor ko normal state me wapas laata hai
-
     const handleLeave = () => {
       // Outer cursor ko normal size me wapas laata hai
       gsap.to(cursor, {
@@ -172,48 +135,54 @@ const CustomCursor = () => {
     // =====================================================
     // DATA-CURSOR ELEMENTS
     // =====================================================
-    // Page ke saare elements find karta hai
-    // jinke paas data-cursor attribute hai
 
-    const cursorElements = document.querySelectorAll("[data-cursor]"); // data-cursor ek attribute ki traha hai
-
-    // Har data-cursor element par hover events lagata hai
-    cursorElements.forEach((element) => {
-      // Mouse enter -> handleEnter()
+    // Kisi bhi data-cursor element par events attach karne ke liye
+    // reusable function
+    const attachCursorEvents = (element) => {
+      // Mouse enter -> cursor expand
       element.addEventListener("mouseenter", handleEnter);
 
-      // Mouse leave -> handleLeave()
+      // Mouse leave -> cursor normal
       element.addEventListener("mouseleave", handleLeave);
-    });
+
+      // Cleanup ke liye same functions save kar rahe hain
+      element._cursorEnter = handleEnter;
+      element._cursorLeave = handleLeave;
+    };
+
+    // Page par jo data-cursor elements already available hain
+    // unke andar events attach kar do
+    document
+      .querySelectorAll("[data-cursor]")
+      .forEach((element) => {
+        attachCursorEvents(element);
+      });
 
     // =====================================================
     // MAGNETIC ELEMENTS
     // =====================================================
-    // Page ke saare elements find karta hai
-    // jinke paas data-magnetic attribute hai
 
-    const magneticElements = document.querySelectorAll("[data-magnetic]"); //data-magnetic ek attribute ki traha hai
-
-    // Har magnetic element par magnetic effect lagata hai
-    magneticElements.forEach((element) => {
+    // Kisi bhi data-magnetic element par magnetic effect
+    // attach karne ke liye reusable function
+    const attachMagneticEvents = (element) => {
       // ===================================================
       // HANDLE MAGNETIC MOVE
       // ===================================================
+
       // Magnetic element ke andar mouse move hone par
       // element ko mouse ki taraf move karta hai
-
       const handleMagneticMove = (e) => {
         // Element ki current position aur size nikalta hai
         const rect = element.getBoundingClientRect();
 
-        // Mouse aur element ke center ke beech X distance calculate karta hai
+        // Mouse aur element ke center ke beech X distance
         const x = e.clientX - (rect.left + rect.width / 2);
 
-        // Mouse aur element ke center ke beech Y distance calculate karta hai
+        // Mouse aur element ke center ke beech Y distance
         const y = e.clientY - (rect.top + rect.height / 2);
 
         // Element ko mouse ki direction me move karta hai
-        // x * 0.2 / y * 0.2 magnetic strength control karta hai
+        // 0.2 = magnetic strength
         gsap.to(element, {
           x: x * 0.2,
           y: y * 0.2,
@@ -225,9 +194,9 @@ const CustomCursor = () => {
       // ===================================================
       // HANDLE MAGNETIC LEAVE
       // ===================================================
+
       // Mouse magnetic element se bahar jaane par
       // element ko original position par wapas laata hai
-
       const handleMagneticLeave = () => {
         // Element ko original position par reset karta hai
         // elastic ease ki wajah se halka bounce effect aata hai
@@ -240,40 +209,131 @@ const CustomCursor = () => {
       };
 
       // Magnetic element par mouse movement ko handle karta hai
-      element.addEventListener("mousemove", handleMagneticMove);
+      element.addEventListener(
+        "mousemove",
+        handleMagneticMove
+      );
 
       // Magnetic element se mouse bahar jaane ko handle karta hai
-      element.addEventListener("mouseleave", handleMagneticLeave);
+      element.addEventListener(
+        "mouseleave",
+        handleMagneticLeave
+      );
 
-      // Magnetic functions ko element par save karta hai
-      // Taaki cleanup ke time same functions remove kiye ja sakein
+      // Cleanup ke liye functions save kar rahe hain
       element._magneticMove = handleMagneticMove;
       element._magneticLeave = handleMagneticLeave;
+    };
+
+    // Page par jo data-magnetic elements already available hain
+    // unke andar events attach kar do
+    document
+      .querySelectorAll("[data-magnetic]")
+      .forEach((element) => {
+        attachMagneticEvents(element);
+      });
+
+    // =====================================================
+    // MUTATION OBSERVER
+    // =====================================================
+
+    // Page par jab naye elements dynamically add honge
+    // MutationObserver unhe detect karega
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          // Sirf HTML elements ko process karo
+          if (node.nodeType !== 1) return;
+
+          // ---------------------------------------------
+          // DATA-CURSOR
+          // ---------------------------------------------
+
+          // Agar newly added element khud data-cursor hai
+          if (node.matches("[data-cursor]")) {
+            attachCursorEvents(node);
+          }
+
+          // Agar newly added element ke andar
+          // data-cursor elements hain
+          node
+            .querySelectorAll?.("[data-cursor]")
+            .forEach((element) => {
+              attachCursorEvents(element);
+            });
+
+          // ---------------------------------------------
+          // DATA-MAGNETIC
+          // ---------------------------------------------
+
+          // Agar newly added element khud data-magnetic hai
+          if (node.matches("[data-magnetic]")) {
+            attachMagneticEvents(node);
+          }
+
+          // Agar newly added element ke andar
+          // data-magnetic elements hain
+          node
+            .querySelectorAll?.("[data-magnetic]")
+            .forEach((element) => {
+              attachMagneticEvents(element);
+            });
+        });
+      });
+    });
+
+    // Body ke andar hone wale naye DOM changes observe karo
+    // Isse page navigation aur API-rendered elements bhi detect honge
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
     });
 
     // =====================================================
     // CLEANUP
     // =====================================================
+
     // Component unmount hone par saare event listeners remove karta hai
     // Isse duplicate events aur memory leaks se bach sakte hain
-
     return () => {
       // Window ka mousemove event remove karta hai
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener(
+        "mousemove",
+        handleMouseMove
+      );
+
+      // MutationObserver ko stop karta hai
+      observer.disconnect();
 
       // Saare cursor elements ke events remove karta hai
-      cursorElements.forEach((element) => {
-        element.removeEventListener("mouseenter", handleEnter);
+      document
+        .querySelectorAll("[data-cursor]")
+        .forEach((element) => {
+          element.removeEventListener(
+            "mouseenter",
+            element._cursorEnter
+          );
 
-        element.removeEventListener("mouseleave", handleLeave);
-      });
+          element.removeEventListener(
+            "mouseleave",
+            element._cursorLeave
+          );
+        });
 
       // Saare magnetic elements ke events remove karta hai
-      magneticElements.forEach((element) => {
-        element.removeEventListener("mousemove", element._magneticMove);
+      document
+        .querySelectorAll("[data-magnetic]")
+        .forEach((element) => {
+          element.removeEventListener(
+            "mousemove",
+            element._magneticMove
+          );
 
-        element.removeEventListener("mouseleave", element._magneticLeave);
-      });
+          element.removeEventListener(
+            "mouseleave",
+            element._magneticLeave
+          );
+        });
     };
 
     // Empty dependency array:
@@ -292,7 +352,6 @@ const CustomCursor = () => {
         className="
           pointer-events-none
           fixed
-        
           left-0
           top-0
           z-[99999]
@@ -301,21 +360,19 @@ const CustomCursor = () => {
           w-0
           px-4
           py-4
-          
           items-center
           justify-center
           rounded-full
           border
           border-border/80
-          bg-secondary/30
-          backdrop-blur
+          bg-secondary/60
         "
+        // backdrop-blur-xl bg blur karne ke liye
       >
         {/* Cursor ke andar VIEW / DRAG text */}
         <span
           ref={textRef}
           className="
-          
             pointer-events-none
             text-[6px]
             font-medium
