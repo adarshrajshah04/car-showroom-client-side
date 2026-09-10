@@ -1,3 +1,4 @@
+import MainBrand from '@/components/brands/MainBrand'
 import React from 'react'
 
 
@@ -5,6 +6,7 @@ const page = () => {
   return (
     <div className='pt-30 text-light-text'>
         page
+        <MainBrand/>
     </div>
   )
 }
