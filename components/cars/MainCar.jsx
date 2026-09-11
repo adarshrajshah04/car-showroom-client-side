@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCars } from "../../redux/action/cars.action";
 import CarsCard from "./CarsCard";
 
-const FetchCarData = () => {
+const MainCar = () => {
   const dispatch = useDispatch();
 
   const { cars, isLoading, errorMsg } = useSelector(
@@ -25,10 +25,10 @@ const FetchCarData = () => {
 
       <div>
         {/* sending cars data to CarsCard component */}
-        <CarsCard cars={cars} />
+        <CarsCard data={cars} />
       </div>
     </div>
   );
 };
 
-export default FetchCarData;
+export default MainCar;

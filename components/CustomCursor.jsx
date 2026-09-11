@@ -1,4 +1,3 @@
-
 "use client";
 
 // React hooks
@@ -96,6 +95,7 @@ const CustomCursor = () => {
       // Agar value empty hai to default "VIEW" show hoga
       text.textContent = value || "VIEW";
 
+     
       // Cursor ke andar text ko animate karke show karta hai
       gsap.to(text, {
         opacity: 1,
@@ -152,11 +152,9 @@ const CustomCursor = () => {
 
     // Page par jo data-cursor elements already available hain
     // unke andar events attach kar do
-    document
-      .querySelectorAll("[data-cursor]")
-      .forEach((element) => {
-        attachCursorEvents(element);
-      });
+    document.querySelectorAll("[data-cursor]").forEach((element) => {
+      attachCursorEvents(element);
+    });
 
     // =====================================================
     // MAGNETIC ELEMENTS
@@ -209,16 +207,10 @@ const CustomCursor = () => {
       };
 
       // Magnetic element par mouse movement ko handle karta hai
-      element.addEventListener(
-        "mousemove",
-        handleMagneticMove
-      );
+      element.addEventListener("mousemove", handleMagneticMove);
 
       // Magnetic element se mouse bahar jaane ko handle karta hai
-      element.addEventListener(
-        "mouseleave",
-        handleMagneticLeave
-      );
+      element.addEventListener("mouseleave", handleMagneticLeave);
 
       // Cleanup ke liye functions save kar rahe hain
       element._magneticMove = handleMagneticMove;
@@ -227,11 +219,9 @@ const CustomCursor = () => {
 
     // Page par jo data-magnetic elements already available hain
     // unke andar events attach kar do
-    document
-      .querySelectorAll("[data-magnetic]")
-      .forEach((element) => {
-        attachMagneticEvents(element);
-      });
+    document.querySelectorAll("[data-magnetic]").forEach((element) => {
+      attachMagneticEvents(element);
+    });
 
     // =====================================================
     // MUTATION OBSERVER
@@ -256,11 +246,9 @@ const CustomCursor = () => {
 
           // Agar newly added element ke andar
           // data-cursor elements hain
-          node
-            .querySelectorAll?.("[data-cursor]")
-            .forEach((element) => {
-              attachCursorEvents(element);
-            });
+          node.querySelectorAll?.("[data-cursor]").forEach((element) => {
+            attachCursorEvents(element);
+          });
 
           // ---------------------------------------------
           // DATA-MAGNETIC
@@ -273,11 +261,9 @@ const CustomCursor = () => {
 
           // Agar newly added element ke andar
           // data-magnetic elements hain
-          node
-            .querySelectorAll?.("[data-magnetic]")
-            .forEach((element) => {
-              attachMagneticEvents(element);
-            });
+          node.querySelectorAll?.("[data-magnetic]").forEach((element) => {
+            attachMagneticEvents(element);
+          });
         });
       });
     });
@@ -297,43 +283,24 @@ const CustomCursor = () => {
     // Isse duplicate events aur memory leaks se bach sakte hain
     return () => {
       // Window ka mousemove event remove karta hai
-      window.removeEventListener(
-        "mousemove",
-        handleMouseMove
-      );
+      window.removeEventListener("mousemove", handleMouseMove);
 
       // MutationObserver ko stop karta hai
       observer.disconnect();
 
       // Saare cursor elements ke events remove karta hai
-      document
-        .querySelectorAll("[data-cursor]")
-        .forEach((element) => {
-          element.removeEventListener(
-            "mouseenter",
-            element._cursorEnter
-          );
+      document.querySelectorAll("[data-cursor]").forEach((element) => {
+        element.removeEventListener("mouseenter", element._cursorEnter);
 
-          element.removeEventListener(
-            "mouseleave",
-            element._cursorLeave
-          );
-        });
+        element.removeEventListener("mouseleave", element._cursorLeave);
+      });
 
       // Saare magnetic elements ke events remove karta hai
-      document
-        .querySelectorAll("[data-magnetic]")
-        .forEach((element) => {
-          element.removeEventListener(
-            "mousemove",
-            element._magneticMove
-          );
+      document.querySelectorAll("[data-magnetic]").forEach((element) => {
+        element.removeEventListener("mousemove", element._magneticMove);
 
-          element.removeEventListener(
-            "mouseleave",
-            element._magneticLeave
-          );
-        });
+        element.removeEventListener("mouseleave", element._magneticLeave);
+      });
     };
 
     // Empty dependency array:
@@ -356,16 +323,18 @@ const CustomCursor = () => {
           top-0
           z-[99999]
           flex
-          h-0
-          w-0
-          px-4
-          py-4
+          h-8
+          w-8
+          px-2
+          py-2
           items-center
           justify-center
           rounded-full
           border
           border-border/60
           bg-black/30
+          text-center
+          overflow-hidden
         "
         // backdrop-blur-xl bg blur karne ke liye
       >

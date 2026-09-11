@@ -3,10 +3,10 @@ import Link from "next/link";
 import React from "react";
 
 
-const CarsCard = ({ cars }) => {
+const CarsCard = ({ data }) => {
   return (
     <div className="w-full min-h-screen flex flex-wrap items-center justify-between gap-8">
-      {cars.map((car, idx) => (
+      {data.map((car, idx) => (
         <div key={idx} className="w-[23%] h-100 border border-border/50 overflow-hidden rounded-xl">
           
           {/* Image */}

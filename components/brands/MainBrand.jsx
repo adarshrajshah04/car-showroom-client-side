@@ -2,6 +2,7 @@
 import { fetchBrands } from '@/redux/action/brand.action'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import BrandCards from './BrandCards'
 
 
 
@@ -13,7 +14,9 @@ const MainBrand = () => {
     }, [dispatch])
     
   return (
-    <div>MainBrand</div>
+    <div>
+      <BrandCards brands={brands}/>
+    </div>
   )
 }
 
