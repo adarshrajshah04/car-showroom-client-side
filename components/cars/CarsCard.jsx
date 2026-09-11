@@ -5,9 +5,9 @@ import React from "react";
 
 const CarsCard = ({ data }) => {
   return (
-    <div className="w-full min-h-screen flex flex-wrap items-center justify-between gap-8">
+    <div className="w-full min-h-screen flex flex-wrap items-center justify-between gap-8 overflow-y-auto pb-5">
       {data.map((car, idx) => (
-        <div key={idx} className="w-[23%] h-100 border border-border/50 overflow-hidden rounded-xl">
+        <div key={idx} className="w-[23%] h-100 border border-border/50 overflow-hidden rounded-xl bg-card">
           
           {/* Image */}
           <Link 

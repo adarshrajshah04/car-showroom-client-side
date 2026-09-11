@@ -8,7 +8,7 @@ import BrandCards from './BrandCards'
 
 const MainBrand = () => {
     const dispatch = useDispatch();
-    const { brands } = useSelector((state) => state.brands);
+    const { brands, } = useSelector((state) => state.brands);
     useEffect(() => {
       dispatch(fetchBrands());
     }, [dispatch])

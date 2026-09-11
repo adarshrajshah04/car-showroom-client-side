@@ -6,7 +6,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
 import AutoScroll from "@/components/home/AutoScroll";
 import TitleText from "@/components/home/TitleText";
-import { Home } from "lucide-react";
+
 
 export const metadata ={
   title:'Home | ARS',
