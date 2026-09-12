@@ -38,7 +38,7 @@ const AutoScroll = () => {
   };
 
   return (
-    <div className="w-full overflow-hidden px-20">
+    <div className="w-full overflow-hidden px-20 border-b border-border/40 border-t pt-10">
       <Slider {...settings}>
         {brands.map((brand, idx) => (
             

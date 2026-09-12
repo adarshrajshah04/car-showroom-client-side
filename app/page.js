@@ -6,7 +6,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { MdOutlineWatchLater } from "react-icons/md";
 import AutoScroll from "@/components/home/AutoScroll";
 import TitleText from "@/components/home/TitleText";
-import NewCollection from "@/components/home/NewCollection";
+import NewCollection from "@/components/home/NewCollection/NewCollection";
 
 
 export const metadata ={
@@ -78,7 +78,8 @@ const page = () => {
         ))}
       </div>
 
-      <div><NewCollection/></div>
+      <div>
+        <NewCollection/></div>
       <AutoScroll/>
     </div>
   );
