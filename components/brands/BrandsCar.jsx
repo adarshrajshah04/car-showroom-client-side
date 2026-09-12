@@ -10,17 +10,20 @@ const BrandsCar = ({ id }) => {
 
   useEffect(() => {
     dispatch(fetchCars());
-   
   }, [dispatch]);
- 
 
-  const fdata = cars.filter((a) => a.categoryId === id);;
+  const fdata = cars.filter((a) => a.categoryId == id);
 
-  console.log(fdata);
-
-  return <div>
-    <CarsCard data={fdata}/>
-  </div>;
+  return (
+    <div>
+     <div className="h-full w-fill flex items-center justify-center"> {isLoading && <p className=" text-white ">Loading....</p>}</div>
+      {errorMsg && <p className=" text-red-600">{errorMsg}</p>}
+    
+      <div>
+        <CarsCard data={fdata} />
+      </div>
+    </div>
+  );
 };
 
 export default BrandsCar;

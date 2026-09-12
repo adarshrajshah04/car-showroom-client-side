@@ -5,7 +5,7 @@ import React from 'react'
 const page = () => {
   return (
     <div className='pt-30 px-20 text-light-text'>
-        page
+        
         <MainBrand/>
     </div>
   )

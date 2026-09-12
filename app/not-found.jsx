@@ -17,7 +17,7 @@ const notfound = () => {
         </FuzzyText>
 
         <p className="mt-8 text-dark-text">
-         {" The page you're looking for doesn't exist."}
+         page not found
         </p>
         <Link href={'/'}
         className="inline-block bg-blue-800 px-2 py-2 text-sm text-light-text

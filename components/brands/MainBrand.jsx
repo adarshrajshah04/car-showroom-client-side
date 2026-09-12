@@ -14,7 +14,7 @@ const MainBrand = () => {
     }, [dispatch])
     
   return (
-    <div>
+    <div  className="h-screen w-full">
       <BrandCards brands={brands}/>
     </div>
   )

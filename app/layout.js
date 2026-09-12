@@ -3,7 +3,7 @@ import "./globals.css";
 import TopHeader from "@/components/TopHeader";
 import CustomCursor from "@/components/CustomCursor";
 import Providers from "@/redux/Providers";
-import Footer from "@/components/home/footer/Footer";
+import Footer from "@/components/footer/Footer";
 
 
 

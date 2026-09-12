@@ -45,11 +45,12 @@ const SliderHome = () => {
     <div className="slider-container  w-full" >
       <Slider {...settings} >
          {cars.map((car) => (
-          <div key={car.id}>
+          <div key={car.id} >
             <div
-              className="h-screen w-full bg-cover bg-center bg-black/80"
+              className="h-screen w-full bg-cover bg-center bg-black/80  "
               style={{
                 backgroundImage: `url(${car.image})`,
+              
               }}
             />
           </div>

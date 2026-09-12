@@ -21,7 +21,7 @@ const MainCar = () => {
     <div >
       {isLoading && <p className="text-white">Loading...</p>}
 
-      {/* {errorMsg && <p className=" text-red-600">{errorMsg}</p>} */}
+      {errorMsg && <p className=" text-red-600">{errorMsg}</p>}
 
       <div>
         {/* sending cars data to CarsCard component */}

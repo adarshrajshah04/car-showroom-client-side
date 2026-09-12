@@ -13,6 +13,7 @@ const TitleText = () => {
             duration:2,
             stagger:-0.3,
             ease: "power4.out",
+            
 
         })
     })
