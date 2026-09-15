@@ -87,11 +87,13 @@ const pathname=usePathname()
         ))}
       </div>
       {/* Login */}
-      <div id="nlogin">
-        <div className="flex items-center">
+      <div id="nlogin"
+      data-cursor=''
+      >
+        <Link href='/login' className="flex items-center">
           <h3>Login </h3>
         <p className=" ml-1"><FaArrowRight /></p>
-        </div>
+        </Link>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import SingleCar from '@/components/cars/SingleCar';
 import React from 'react'
 
 const page =async  ({params}) => {
@@ -6,7 +7,9 @@ const page =async  ({params}) => {
   console.log(id);
     
   return (
-    <div className=' py-30 text-white'>{id}page</div>
+    <div className=' pt-30 px-20 text-white h-screen w-full  '>
+    <SingleCar id={id}/>
+    </div>
   )
 }
 
