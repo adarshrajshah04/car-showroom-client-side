@@ -35,7 +35,7 @@ const NewCollectionCarCards = ({ data }) => {
               {car.description}
             </p>
             <Link
-              href={`collection/${car.id}`}
+              href={`/${car.id}`}
               data-cursor=""
               className=" w-full py-3 px-5 mt-2 rounded-full border border-border/20  flex justify-between items-center "
             >

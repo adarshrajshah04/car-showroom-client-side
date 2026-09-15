@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCars } from "../../redux/action/cars.action";
 import CarsCard from "./CarsCard";
-
+import Loading from "@/app/loading";
 const MainCar = () => {
   const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const MainCar = () => {
   return (
     <div className=" min-h-screen" >
      
-      {isLoading ? <p className="text-white">Loading...</p>:<>
+      {isLoading ?<Loading/>:<>
       <div >
         <p className="text-mid-text/60 text-sm ">The collection</p>
         <h3 className="text-6xl text-light-text font-bold mt-5">Every car, fully documented</h3>

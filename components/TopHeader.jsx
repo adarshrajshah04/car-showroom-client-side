@@ -88,7 +88,7 @@ const pathname=usePathname()
       </div>
       {/* Login */}
       <div id="nlogin"
-      data-cursor=''
+      data-cursor='Login'
       >
         <Link href='/login' className="flex items-center">
           <h3>Login </h3>

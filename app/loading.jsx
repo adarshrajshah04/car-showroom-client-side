@@ -1,9 +1,15 @@
-import React from 'react'
+import { ThreeDot } from "react-loading-indicators";
 
-const loading = () => {
+const Loading = () => {
   return (
-    <div>loading.......</div>
-  )
-}
-
-export default loading
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-primary">
+      <ThreeDot
+        variant="bounce"
+        color="#bac3ba"
+        size="medium"
+        text="Loading ...."
+        textColor=""
+      />
+    </div>
+  );
+};export default Loading
