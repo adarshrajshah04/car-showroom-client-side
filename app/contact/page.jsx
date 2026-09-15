@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 
 const page = () => {
   return (
-    <div className=" pt-25 text-white flex px-20">
+    <div className=" pt-25 text-white flex px-20 pb-10">
       <div className="w-1/2 pr-10 ">
         <p className=" text-mid-text/60 text-sm mt-5 ">Enquiries</p>
         <h3 className="  text-8xl mt-20">{"Let's talk about the car"}</h3>

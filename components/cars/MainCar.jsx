@@ -25,8 +25,8 @@ const MainCar = () => {
       {isLoading ?<Loading/>:<>
       <div >
         <p className="text-mid-text/60 text-sm ">The collection</p>
-        <h3 className="text-6xl text-light-text font-bold mt-5">Every car, fully documented</h3>
-        <p className=" text-mid-text/60  mt-5 mb-15 ">Drive Your Dream</p>
+        <h3 className="text-6xl text-light-text font-bold mt-5 mb-20">Every car, fully documented</h3>
+        
         {/* sending cars data to CarsCard component */}
         <div >
           <CarsCard data={cars} />

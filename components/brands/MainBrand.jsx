@@ -15,6 +15,8 @@ const MainBrand = () => {
     
   return (
     <div  className="min-h-screen w-full pb-20">
+      <p className=" text-mid-text/60   mb-5 ">The marques</p>
+      <h3 className='text-light-text text-7xl mb-20 font-bold'>Every name, a legacy</h3>
       <BrandCards brands={brands}/>
     </div>
   )
