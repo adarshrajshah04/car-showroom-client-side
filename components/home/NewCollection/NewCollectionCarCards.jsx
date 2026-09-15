@@ -14,7 +14,7 @@ const NewCollectionCarCards = ({ data }) => {
         >
           {/* Image */}
           <Link
-            href={`collection/${car.id}`}
+            href={`/${car.id}`}
             className="relative w-full h-75 inline-block  "
           >
             <Image
